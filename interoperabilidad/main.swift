@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import PythonKit
+PythonLibrary.useVersion(3)
 
-print("Hello, World!")
+func runCompiler(){
+  let sys = Python.import("sys")
+  // append al url del archivo main en python !
+  sys.path.append("/Users/aliciacisneros/Downloads/ITC/9no/compiladores/patito-pruebas/interoperabilidad/interoperabilidad/compiler/")
+  let example = Python.import("little_duck")
+    print(example.main())
 
+}
+
+runCompiler()

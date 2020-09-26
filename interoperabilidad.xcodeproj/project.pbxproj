@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		EFE460B3251F2A6B00070E66 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE460B2251F2A6B00070E66 /* main.swift */; };
+		EFE460BB251F2B0E00070E66 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = EFE460BA251F2B0E00070E66 /* PythonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,11 @@
 
 /* Begin PBXFileReference section */
 		EFE460AF251F2A6B00070E66 /* interoperabilidad */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = interoperabilidad; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFE460B2251F2A6B00070E66 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EFE460B2251F2A6B00070E66 /* main.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; tabWidth = 2; };
+		EFE460BC251F2CCD00070E66 /* interoperabilidad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = interoperabilidad.entitlements; sourceTree = "<group>"; };
+		EFE460BD251F2D2F00070E66 /* python-prueba.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = "python-prueba.py"; sourceTree = "<group>"; };
+		EFE460BF251F313600070E66 /* little_duck.py */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.script.python; name = little_duck.py; path = "../../../../tareas/little-duck/little_duck.py"; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
+		EFE460C0251F314800070E66 /* ply */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ply; path = "../../../../tareas/little-duck/ply"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE460BB251F2B0E00070E66 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +63,21 @@
 		EFE460B1251F2A6B00070E66 /* interoperabilidad */ = {
 			isa = PBXGroup;
 			children = (
+				EFE460BC251F2CCD00070E66 /* interoperabilidad.entitlements */,
 				EFE460B2251F2A6B00070E66 /* main.swift */,
+				EFE460BE251F30FA00070E66 /* compiler */,
 			);
 			path = interoperabilidad;
+			sourceTree = "<group>";
+		};
+		EFE460BE251F30FA00070E66 /* compiler */ = {
+			isa = PBXGroup;
+			children = (
+				EFE460BD251F2D2F00070E66 /* python-prueba.py */,
+				EFE460C0251F314800070E66 /* ply */,
+				EFE460BF251F313600070E66 /* little_duck.py */,
+			);
+			path = compiler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +96,9 @@
 			dependencies = (
 			);
 			name = interoperabilidad;
+			packageProductDependencies = (
+				EFE460BA251F2B0E00070E66 /* PythonKit */,
+			);
 			productName = interoperabilidad;
 			productReference = EFE460AF251F2A6B00070E66 /* interoperabilidad */;
 			productType = "com.apple.product-type.tool";
@@ -106,6 +127,9 @@
 				Base,
 			);
 			mainGroup = EFE460A6251F2A6B00070E66;
+			packageReferences = (
+				EFE460B9251F2B0E00070E66 /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = EFE460B0251F2A6B00070E66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +267,7 @@
 		EFE460B7251F2A6B00070E66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = interoperabilidad/interoperabilidad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77W6D4BLBJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -254,6 +279,7 @@
 		EFE460B8251F2A6B00070E66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = interoperabilidad/interoperabilidad.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77W6D4BLBJ;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -284,6 +310,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFE460B9251F2B0E00070E66 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EFE460BA251F2B0E00070E66 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFE460B9251F2B0E00070E66 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFE460A7251F2A6B00070E66 /* Project object */;
 }
